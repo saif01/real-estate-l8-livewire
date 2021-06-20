@@ -209,42 +209,78 @@
                                                 <input type="checkbox" name="cc" id="c1" @if($allData->parking == 'gym') checked @endif>
                                                 <label for="c1">
                                                     <span></span>
-                                                    <small>{{ $allData->parking }}</small>
+                                                    <small>
+                                                        @if($allData->parking == 'parking')
+                                                        Parking
+                                                        @else  
+                                                        Not Available
+                                                        @endif 
+                                                    </small>
                                                 </label>
                                             </li>
                                             <li class="input-field">
                                                 <input type="checkbox" name="cc" id="c2" @if($allData->gym == 'gym') checked @endif>
                                                 <label for="c2">
                                                     <span></span>
-                                                    <small>{{ $allData->gym }}</small>
+                                                    <small>
+                                                        @if($allData->gym == 'gym')
+                                                        GYM
+                                                        @else  
+                                                        Not Available
+                                                        @endif 
+                                                    </small>
                                                 </label>
                                             </li>
                                             <li class="input-field">
-                                                <input type="checkbox" name="cc" id="c3">
+                                                <input type="checkbox" name="cc" id="c3" @if($allData->heating == 'heating') checked @endif>
                                                 <label for="c3">
                                                     <span></span>
-                                                    <small>Heating</small>
+                                                    <small>
+                                                            @if($allData->heating == 'heating')
+                                                            Heating
+                                                            @else  
+                                                            Not Available
+                                                            @endif 
+                                                        </small>
                                                 </label>
                                             </li>
                                             <li class="input-field">
-                                                <input type="checkbox" name="cc" id="c4" checked>
+                                                <input type="checkbox" name="cc" id="c4" @if($allData->ac == 'ac') checked @endif>
                                                 <label for="c4">
                                                     <span></span>
-                                                    <small>Air Conditioner</small>
+                                                    <small>
+                                                        @if($allData->ac == 'ac')
+                                                        Air Conditioner
+                                                        @else  
+                                                        Not Available
+                                                        @endif 
+                                                    </small>
                                                 </label>
                                             </li>
                                             <li class="input-field">
-                                                <input type="checkbox" name="cc" id="c5" checked>
+                                                <input type="checkbox" name="cc" id="c5" @if($allData->internet == 'internet') checked @endif>
                                                 <label for="c5">
                                                     <span></span>
-                                                    <small>Wireless Internet</small>
+                                                    <small>
+                                                     @if($allData->internet == 'internet')
+                                                        Wireless Internet
+                                                        @else  
+                                                        Not Available
+                                                        @endif 
+                                                        </small>
                                                 </label>
                                             </li>
                                             <li class="input-field">
-                                                <input type="checkbox" name="cc" id="c6">
+                                                <input type="checkbox" name="cc" id="c6" @if($allData->sw_pool == 'sw_pool') checked @endif>
                                                 <label for="c6">
                                                     <span></span>
-                                                    <small>Swimming Pool</small>
+                                                    <small>
+                                                    @if($allData->sw_pool == 'sw_pool')
+                                                        Swimming Pool
+                                                        @else  
+                                                        Not Available
+                                                        @endif
+                                                    </small>
                                                 </label>
                                             </li>
                                         </ul>
