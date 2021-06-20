@@ -30,7 +30,17 @@ class IndexController extends Controller
     }
 
 
+    //property
+    public function property(){
+        return view('front-end.property');
+    }
 
+
+    // propertyDetails
+    public function propertyDetails($slug){
+
+        return view('front-end.property-details', compact('slug'));
+    }
 
 
 

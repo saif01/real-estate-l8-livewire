@@ -11,33 +11,45 @@
             </div>
             <div class="modal-body">
 
-                <div class="form-group">
-                    <input type="text" wire:model='address' class="form-control form-control-sm"
-                        placeholder="Enter apartment address">
-                    <small>{{ $slugAddress }}</small>
-                    @error('address')
-                    <small class="form-text text-danger">{{ $message }}</small>
-                    @enderror
+                <div class="row mb-2">
+                    <div class="col">
+                        <input type="text" wire:model='title' class="form-control form-control-sm"
+                            placeholder="Enter Property Title">
+                        @error('title')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="col">
+                        <input type="text" wire:model='address' class="form-control form-control-sm"
+                            placeholder="Enter Property Address">
+                        <small>{{ $slugAddress }}</small>
+                        @error('address')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="row mb-2">
-                    <div class="col">
-                        <input type="text" wire:model='type' class="form-control form-control-sm"
-                            placeholder="Type of apartment">
+                     <div class="col">
+                        <select class="form-control form-control-sm" wire:model="type">
+                            <option selected>Choose Property type</option>
+                            <option value="rent">Rent</option>
+                            <option value="sale">Sale</option>
+                        </select>
                         @error('type')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="col">
                         <input type="text" wire:model='area' class="form-control form-control-sm"
-                            placeholder="Apartment area">
+                            placeholder="Property Area Like ( 555 Sq Ft )">
                         @error('area')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="col">
                         <input type="text" wire:model='amenities' class="form-control form-control-sm"
-                            placeholder="Amenities like Elevator">
+                            placeholder="Amenities Like (Elevator)">
                         @error('amenities')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -47,21 +59,21 @@
                 <div class="row mb-2">
                     <div class="col">
                         <input type="number" wire:model='price' class="form-control form-control-sm"
-                            placeholder="Price">
+                            placeholder="Enter Property Price">
                         @error('price')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="col">
                         <input type="number" wire:model='bedroom' class="form-control form-control-sm"
-                            placeholder="Bedroom Numer">
+                            placeholder="Enter Bedroom Numer">
                         @error('bedroom')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="col">
                         <input type="number" wire:model='bathroom' class="form-control form-control-sm"
-                            placeholder="Bathroom number">
+                            placeholder="Enter Bathroom Number">
                         @error('bathroom')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -109,6 +121,16 @@
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
+                    <div class="col">
+                        <select class="form-control form-control-sm" wire:model="parking">
+                            <option selected>Choose Parking System</option>
+                            <option value="parking">Parking</option>
+                            <option value="No">Not Available</option>
+                        </select>
+                        @error('internet')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
 
                 </div>
 
@@ -147,35 +169,13 @@
                         <input type="text" wire:model='built_year' class="form-control form-control-sm datepicker"
                             autocomplete="off" data-provide="datepicker" data-date-autoclose="true"
                             data-date-format="yyyy-mm-dd" data-date-today-highlight="true"
-                            placeholder="Enter Report Date" onchange="this.dispatchEvent(new InputEvent('input'))">
-                        @error('address')
+                            placeholder="Enter Date Of Build" onchange="this.dispatchEvent(new InputEvent('input'))">
+                        @error('built_year')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
 
                 </div>
-
-
-                <div class="row">
-                    <div class="col">
-                        <label>Date</label>
-                        <div class='input-group'>
-                            <input wire:model="date" type="text" class="form-control datepicker" autocomplete="off"
-                                data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd"
-                                data-date-today-highlight="true" placeholder="Enter Report Date"
-                                onchange="this.dispatchEvent(new InputEvent('input'))" />
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <span class="far fa-calendar-alt"></span>
-                                </span>
-                            </div>
-                        </div>
-                        @error('date')
-                        <small class="small text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-
 
 
                 <div class="form-group" wire:ignore>

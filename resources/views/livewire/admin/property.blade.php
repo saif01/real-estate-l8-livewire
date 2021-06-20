@@ -2,7 +2,7 @@
 
     <div class="card-header row">
         <div class="col-md-6">
-            <h4 class="card-title">Apartment List</h4>
+            <h4 class="card-title">Property List</h4>
         </div>
 
         <div class="col-md-6">
@@ -27,8 +27,6 @@
                 <table class="table mb-0 table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th wire:click="sortBy('date')">Date
-                                @include('livewire.partials.sort-icon',['field'=>'date'])</th>
                             <th wire:click="sortBy('title')">Title
                                 @include('livewire.partials.sort-icon',['field'=>'title'])</th>
                             <th wire:click="sortBy('details')">Details
@@ -39,19 +37,31 @@
                     <tbody>
                         @forelse ($allData as $item)
                         <tr>
-                            <td>{{ $item->date }}</td>
                             <td>{{ $item->title }}</td>
                             <td class="p-0">
-
-                                @if($item->document)
-                                <a class="btn btn-sm btn-success float-right mt-2" href="{{ $docUrl.$item->document }}"
-                                    download="PressNew"><i class="fas fa-download"></i>Documnet</a>
-                                @endif
 
                                 @if($item->image)
                                 <img src="{{ $assetUrl.$item->image }}" height="100" class="rounded d-block"><br>
                                 @endif
-                                Slug : {{ $item->slug }} <hr>
+
+                                Address : {{ $item->address }} <b>&nbsp;||&nbsp;</b>
+                                Slug : {{ $item->address_slug }}<br><br>
+                                Type : {{ $item->type }}<b>&nbsp;||&nbsp;</b>
+                                Price : {{ $item->price }}<b>&nbsp;||&nbsp;</b>
+                                Bedroom : {{ $item->bedroom }}<b>&nbsp;||&nbsp;</b>
+                                Bathroom : {{ $item->bathroom }}<b>&nbsp;||&nbsp;</b>
+                                Area : {{ $item->area }}<b>&nbsp;||&nbsp;</b>
+                                Amenities : {{ $item->amenities }}<b>&nbsp;||&nbsp;</b>
+                                Cooling : {{ $item->cooling }}<b>&nbsp;||&nbsp;</b>
+                                Gym : {{ $item->gym }}<b>&nbsp;||&nbsp;</b>
+                                Internet : {{ $item->internet }}<b>&nbsp;||&nbsp;</b>
+                                Parking : {{ $item->parking }}<b>&nbsp;||&nbsp;</b>
+                                Heating : {{ $item->heating }}<b>&nbsp;||&nbsp;</b>
+                                sw_pool : {{ $item->sw_pool }}<b>&nbsp;||&nbsp;</b>
+                                fire_place : {{ $item->fire_place }}<b>&nbsp;||&nbsp;</b>
+                                built_year : {{ $item->built_year }}
+                                <br><br>
+                                Description:
                                 {!! $item->details !!}
 
 
@@ -125,7 +135,7 @@
         </div>
     </div>
 
-    @include('livewire.admin.modals.apartment')
+    @include('livewire.admin.modals.property')
 
 
 </div>

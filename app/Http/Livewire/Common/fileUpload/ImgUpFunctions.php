@@ -47,6 +47,15 @@ trait ImgUpFunctions{
         return $imageName;
     }
 
+    // Image delete by path
+    public function imgDeleteByPath($imgFile = null, $path = null,  $diskName = 'custom'){
+
+        if( !empty($imgFile) ){
+            // If file exist then delete without throw error
+            Storage::disk($diskName)->delete( $path . $imgFile );
+        }         
+    }
+
     // Document Upload
     public function docUpload( $doc = null,  $path = null, $diskName = 'custom'){
 

@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', 'Admin apartment')
+@section('title', 'Admin Property')
 
 @push('styles')
 
@@ -7,7 +7,7 @@
 
 @section("content")
 
-    @livewire('admin.apartment')
+    @livewire('admin.property')
 
 @endsection
 

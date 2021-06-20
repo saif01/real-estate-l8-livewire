@@ -38,9 +38,9 @@ class IndexController extends Controller
         return view('admin.blog');
     }
 
-    //apartment
-    public function apartment(){
-        return view('admin.apartment');
+    //property
+    public function property(){
+        return view('admin.property');
     }
 
   

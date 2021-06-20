@@ -52,8 +52,8 @@
                  <li class="nav-item"><a href="{{ route('admin.blog') }}" class="nav-link"><span
                              class="pcoded-micon"><i class="feather icon-log-out text-danger"></i></span>Blog</a></li>
 
-                 <li class="nav-item"><a href="{{ route('admin.apartment') }}" class="nav-link"><span
-                             class="pcoded-micon"><i class="feather icon-log-out text-danger"></i></span>Apartments</a></li>
+                 <li class="nav-item"><a href="{{ route('admin.property') }}" class="nav-link"><span
+                             class="pcoded-micon"><i class="feather icon-log-out text-danger"></i></span>Property</a></li>
 
                  <li class="nav-item pcoded-menu-caption">
                      <label>Admin Logout</label>

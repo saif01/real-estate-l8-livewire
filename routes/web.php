@@ -12,6 +12,9 @@ Route::middleware('cors')->group(function(){
         Route::get('/blog', 'IndexController@blog')->name('blog');
         Route::get('/blog-details/{slug}', 'IndexController@blogDetails')->name('blog.details');
 
+        Route::get('/property', 'IndexController@property')->name('property');
+        Route::get('/property-details/{slug}', 'IndexController@propertyDetails')->name('property.details');
+
     });
     // FrontEnd End
 
@@ -36,7 +39,7 @@ Route::middleware('cors')->group(function(){
 
 
         Route::get('/blog', 'IndexController@blog')->name('admin.blog');
-        Route::get('/apartment', 'IndexController@apartment')->name('admin.apartment');
+        Route::get('/property', 'IndexController@property')->name('admin.property');
 
 
 

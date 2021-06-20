@@ -25,7 +25,7 @@
                                 </li>
 
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="list.html">
+                                    <a class="nav-link" href="{{ route('property') }}">
                                         Find property
                                     </a>
 

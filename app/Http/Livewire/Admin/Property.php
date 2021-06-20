@@ -12,43 +12,41 @@ use App\Http\Livewire\Common\dataTbl\TblComponants;
 use App\Http\Livewire\Common\Modal\ModalOpenClose;
 
 use Illuminate\Support\Str;
-use App\Models\Admin\ApartmentInfo;
+use App\Models\Admin\PropertyInfo;
 
-class Apartment extends Component
+class Property extends Component
 {
     use WithPagination, ImgUpFunctions, Conformation, TblComponants, ModalOpenClose;
 
     protected $paginationTheme = 'bootstrap';
   
-    public $image, $oldImage, $assetUrl, $date, $title, $slugAddress, $message, $details, $address, $type, $area, $amenities, $price, $bedroom, $bathroom, $cooling, $ac, $gym, $internet, $heating, $sw_pool, $fire_place, $built_year;
+    public $image, $oldImage, $assetUrl, $date, $title, $slugAddress, $message, $details, $address, $type, $area, $amenities, $price, $bedroom, $bathroom, $cooling, $ac, $gym, $internet, $heating, $sw_pool, $fire_place, $parking, $built_year;
 
     public function mount(){
-        $this->assetUrl = asset('images/blog/small').'/';
+        $this->assetUrl = asset('images/property/small').'/';
     }
 
     
     //reset form
     public function resetForm(){
-        $this->date           = '';
         $this->title          = '';
         $this->slugTitle      = '';
         $this->type           = '';
         $this->area           = '';
         $this->amenities      = '';
-        $this->price           = '';
-        $this->bedroom           = '';
-        $this->bathroom           = '';
-        $this->cooling           = '';
-        $this->ac           = '';
-        $this->gym           = '';
-        $this->internet           = '';
-        $this->heating           = '';
-        $this->sw_pool           = '';
-        $this->fire_place           = '';
-        $this->built_year           = '';
+        $this->price          = '';
+        $this->bedroom        = '';
+        $this->bathroom       = '';
+        $this->cooling        = '';
+        $this->ac             = '';
+        $this->gym            = '';
+        $this->internet       = '';
+        $this->heating        = '';
+        $this->sw_pool        = '';
+        $this->fire_place     = '';
+        $this->built_year     = '';
+        $this->parking        = '';
 
-
-       
         $this->details        = '';
         $this->image          = '';
         $this->oldImage       = '';
@@ -57,13 +55,13 @@ class Apartment extends Component
     // Image 
     public function updatedImage(){
         $this->validate([
-            'image'     => 'nullable|image|max:2024', // 1MB Max
+            'image'     => 'nullable|image|max:3024', // 1MB Max
         ]);
     }
 
     // Slug
     public function updatedAddress(){
-        $this->slugAddress = Str::slug($this->title);
+        $this->slugAddress = Str::slug($this->address);
     }
 
 
@@ -85,64 +83,94 @@ class Apartment extends Component
 
             //Validate
             $this->validate([
-                'address'     => 'required|string|max:1000|unique:blog_infos,address,'.$this->editId,
-                'date'      => 'required|string|max:1000',
+                'title'     => 'required|string|max:500',
+                'address'   => 'required|string|max:1000',
+                'type'      => 'required|string|max:1000',
+                'price'     => 'required',
+                'bedroom'   => 'required',
+                'bathroom'  => 'required',
+                'cooling'   => 'required',
+                'ac'        => 'required',
+                'gym'       => 'required',
+                'internet'  => 'required',
+                'heating'   => 'required',
+                'sw_pool'   => 'required',
+                'fire_place'=> 'required',
+                'parking'   => 'required',
+                'amenities' => 'required',
+                'built_year'=> 'required',
                 'details'   => 'required|string|max:80000',
-                'image'     => 'nullable|image|max:1024', // 1MB Max
+                'image'     => 'nullable|image|max:3024', // 1MB Max
             ]);
 
-            $data = ApartmentInfo::find($this->editId);
+            $data = PropertyInfo::find($this->editId);
 
             // Check Image selected 
             if ( !empty($this->image) ) {
-            // Delete file
+                // Delete file
                 $imgFile = $data->image;
                 if ( !empty($imgFile) ){
                     // Delete by trait function
-                    $this->imgDelete($imgFile, 'blog/');
+                    $this->imgDeleteByPath($imgFile, 'property/');
+                    $this->imgDeleteByPath($imgFile, 'images/property/small/');
+                    $this->imgDeleteByPath($imgFile, 'images/property/thumb/');
                 }
             }
 
         }else{
             //Validate
             $this->validate([
-                'address'     => 'required|string|max:1000|unique:blog_infos',
-                'date'      => 'required|string|max:1000',
+                'title'     => 'required|string|max:500',
+                'address'   => 'required|string|max:1000',
+                'type'      => 'required|string|max:1000',
+                'price'     => 'required',
+                'bedroom'   => 'required',
+                'bathroom'  => 'required',
+                'cooling'   => 'required',
+                'ac'        => 'required',
+                'gym'       => 'required',
+                'internet'  => 'required',
+                'heating'   => 'required',
+                'sw_pool'   => 'required',
+                'fire_place'=> 'required',
+                'parking'   => 'required',
+                'amenities' => 'required',
+                'built_year'=> 'required',
                 'details'   => 'required|string|max:80000',
-                'image'     => 'nullable|image|max:2024', // 1MB Max
+                'image'     => 'nullable|image|max:3024', // 1MB Max
             ]);
 
-            $data = new ApartmentInfo();
+            $data = new PropertyInfo();
         }
 
         // Image store
         if ( !empty($this->image) ) {
             // Image upload by trait function
-            $imageName = $this->imgUpBySiPth($this->image, 'images/blog/');
-            $imageName = $this->imgUpBySiPth($this->image, 'images/blog/small/', '370', '295');
-            $imageName = $this->imgUpBySiPth($this->image, 'images/blog/thumb/', '100', '100');
+            $imageName = $this->imgUpBySiPth($this->image, 'images/property/');
+            $imageName = $this->imgUpBySiPth($this->image, 'images/property/small/', '370', '295');
+            $imageName = $this->imgUpBySiPth($this->image, 'images/property/thumb/', '100', '100');
             //dd($imageName);
             $data->image = $imageName;
         }
 
-     
-        $data->date         = $this->date;
+        $data->title        = $this->title;
         $data->address      = $this->address;
         $data->address_slug = Str::slug($this->address);
         $data->area         = $this->area;
         $data->type         = $this->type;
         $data->amenities    = $this->amenities;
-        $data->price      = $this->price;
-        $data->bedroom         = $this->bedroom;
-        $data->bathroom         = $this->bathroom;
-        $data->cooling         = $this->cooling;
-        $data->ac              = $this->ac;
-        $data->gym              = $this->gym;
-        $data->internet              = $this->internet;
-        $data->heating              = $this->heating;
-        $data->sw_pool              = $this->sw_pool;
-        $data->fire_place              = $this->fire_place;
-        $data->built_year              = $this->built_year;
+        $data->price        = $this->price;
+        $data->bedroom      = $this->bedroom;
+        $data->bathroom     = $this->bathroom;
+        $data->cooling      = $this->cooling;
+        $data->ac           = $this->ac;
+        $data->gym          = $this->gym;
+        $data->internet     = $this->internet;
+        $data->heating      = $this->heating;
+        $data->sw_pool      = $this->sw_pool;
+        $data->parking      = $this->parking;   
+        $data->fire_place   = $this->fire_place;
+        $data->built_year   = $this->built_year;
 
 
         $data->details      = $this->details;
@@ -171,13 +199,30 @@ class Apartment extends Component
     // Single Data
     public function edit($val){
 
-        $data = ApartmentInfo::find($val);
+        $data = PropertyInfo::find($val);
 
         // dd($val, $data);
-        $this->date       = $data->date;
         $this->title      = $data->title;
         $this->details    = $data->details;
         $this->oldImage   = $data->image;
+
+        $this->address    = $data->address;
+        $this->area       = $data->area;
+        $this->type       = $data->type;
+        $this->amenities  = $data->amenities;
+        $this->price      = $data->price;
+        $this->bedroom    = $data->bedroom;
+        $this->bathroom   = $data->bathroom;
+        $this->cooling    = $data->cooling;
+        $this->ac         = $data->ac;
+        $this->gym        = $data->gym;
+        $this->internet   = $data->internet;
+        $this->heating    = $data->heating;
+        $this->sw_pool    = $data->sw_pool;
+        $this->parking    = $data->parking;
+        $this->fire_place = $data->fire_place;
+        $this->built_year = $data->built_year;
+
 
         // Edited text added in Summernote 
         $this->dispatchBrowserEvent('editorText', ['messege' => $data->details] );
@@ -199,17 +244,17 @@ class Apartment extends Component
 
             if( !empty($delId) ){
             
-                $data = ApartmentInfo::find($delId);
-
+                $data = PropertyInfo::find($delId);
+            
                 // Delete file
                 $imgFile = $data->image;
                 if ( !empty($imgFile) ){
                     // Delete by trait function
-                    $this->imgDelete($imgFile, 'blog/');
+                    $this->imgDeleteByPath($imgFile, 'property/');
+                    $this->imgDeleteByPath($imgFile, 'images/property/small/');
+                    $this->imgDeleteByPath($imgFile, 'images/property/thumb/');
                 }
-
-            
-
+                
                 // dd($val);
                 $success = $data->delete();
         
@@ -240,7 +285,7 @@ class Apartment extends Component
             // Id get or not
             if( !empty($stId) ){
 
-                $data = ApartmentInfo::find($stId);
+                $data = PropertyInfo::find($stId);
 
                 if($data->status == 1){
                     $data->status = 0;
@@ -271,12 +316,13 @@ class Apartment extends Component
 
     public function render()
     {
-        $allData = ApartmentInfo::query()
-        //->search( trim(preg_replace('/\s+/' ,' ', $this->search)) )
+        $allData = PropertyInfo::query()
+        ->search( trim(preg_replace('/\s+/' ,' ', $this->search)) )
         //->with('zoneData', 'managerData', 'officerData')
         ->orderBy($this->sortBy, $this->sortDirection)
         ->paginate($this->perPage);
 
-        return view('livewire.admin.apartment', compact('allData'));
+        return view('livewire.admin.property', compact('allData'));
     }
 }
+
