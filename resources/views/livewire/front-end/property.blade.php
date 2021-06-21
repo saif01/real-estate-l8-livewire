@@ -90,12 +90,12 @@
                                                             <li>{{ $value->bathroom }} Beds</li>
                                                             <li>{{ $value->area }}</li>
                                                         </ul>
-                                                    </div>
+                                                    </div> 
                                                     <div class="card-footer">
                                                         <div class="crd-links">
                                                             {{-- <a href="#" class="pull-left">
                                                                 <i class="la la-heart-o"></i>
-                                                            </a> --}}
+                                                            </a> --}} 
                                                             <a href="#" class="plf">
                                                                 <i class="la la-calendar-check-o"></i>
                                                                 {{ DayOrHoure( $value->created_at, now() ) }}

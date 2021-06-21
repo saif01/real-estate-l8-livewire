@@ -54,6 +54,14 @@
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
+
+                    <div class="col">
+                        <input type="text" wire:model='owner_name' class="form-control form-control-sm"
+                            placeholder="Property Owner Name">
+                        @error('owner_name')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="row mb-2">
@@ -75,6 +83,13 @@
                         <input type="number" wire:model='bathroom' class="form-control form-control-sm"
                             placeholder="Enter Bathroom Number">
                         @error('bathroom')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                     <div class="col">
+                        <input type="text" wire:model='owner_number' class="form-control form-control-sm"
+                            placeholder="Property Owner Number">
+                        @error('owner_number')
                         <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
@@ -187,20 +202,80 @@
                 <small class="small text-danger">{{ $message }}</small>
                 @enderror
 
+                <div class="row">
+                    <div class="col">
+                        <label> Image</label>
+                        <input type="file" wire:model="image" class="form-control form-control-sm">
+                        @error('image')
+                        <small class="small text-danger">{{ $message }}</small>
+                        @enderror
 
-                <div class="form-group">
-                    <label> Image</label>
-                    <input type="file" wire:model="image" class="form-control">
-                    @error('image')
-                    <small class="small text-danger">{{ $message }}</small>
-                    @enderror
+                        @if ($image)
+                        <img src="{{ $image->temporaryUrl() }}" height="50" class="rounded mx-auto d-block">
+                        @elseif($oldImage)
+                        <img src="{{ $assetUrl.$oldImage }}" height="50" class="rounded mx-auto d-block">
+                        @endif
+                    </div>
+
+                    <div class="col">
+                        <label> Image-2</label>
+                        <input type="file" wire:model="image_2" class="form-control form-control-sm">
+                        @error('image_2')
+                        <small class="small text-danger">{{ $message }}</small>
+                        @enderror
+
+                        @if ($image_2)
+                        <img src="{{ $image_2->temporaryUrl() }}" height="50" class="rounded mx-auto d-block">
+                        @elseif($oldimage_2)
+                        <img src="{{ $assetUrl.$oldimage_2 }}" height="50" class="rounded mx-auto d-block">
+                        @endif
+                    </div>
+
+                    <div class="col">
+                        <label> Image-3</label>
+                        <input type="file" wire:model="image_3" class="form-control form-control-sm">
+                        @error('image_3')
+                        <small class="small text-danger">{{ $message }}</small>
+                        @enderror
+
+                         @if ($image_3)
+                        <img src="{{ $image_3->temporaryUrl() }}" height="50" class="rounded mx-auto d-block">
+                        @elseif($oldimage_3)
+                        <img src="{{ $assetUrl.$oldimage_3 }}" height="50" class="rounded mx-auto d-block">
+                        @endif
+                    </div>
+
+                    <div class="col">
+                        <label> Image-4</label>
+                        <input type="file" wire:model="image_4" class="form-control form-control-sm">
+                        @error('image_4')
+                        <small class="small text-danger">{{ $message }}</small>
+                        @enderror
+
+                         @if ($image_4)
+                        <img src="{{ $image_4->temporaryUrl() }}" height="50" class="rounded mx-auto d-block">
+                        @elseif($oldimage_4)
+                        <img src="{{ $assetUrl.$oldimage_4 }}" height="50" class="rounded mx-auto d-block">
+                        @endif
+                    </div>
+
+                    <div class="col">
+                        <label> Image-5</label>
+                        <input type="file" wire:model="image_5" class="form-control form-control-sm">
+                        @error('image_5')
+                        <small class="small text-danger">{{ $message }}</small>
+                        @enderror
+
+                         @if ($image_5)
+                        <img src="{{ $image_5->temporaryUrl() }}" height="50" class="rounded mx-auto d-block">
+                        @elseif($oldimage_5)
+                        <img src="{{ $assetUrl.$oldimage_5 }}" height="50" class="rounded mx-auto d-block">
+                        @endif
+                    </div>
                 </div>
+               
 
-                @if ($image)
-                <img src="{{ $image->temporaryUrl() }}" height="50" class="rounded mx-auto d-block">
-                @elseif($oldImage)
-                <img src="{{ $assetUrl.$oldImage }}" height="50" class="rounded mx-auto d-block">
-                @endif
+               
 
 
 

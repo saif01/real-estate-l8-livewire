@@ -17,8 +17,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('all-assets/front-end/css/bootstrap.min.css') }}">
     {{-- <!-- fontawesome icon --> --}}
     <link rel="stylesheet" href="{{ asset('all-assets/common/fontawesom5.7/css/all.min.css') }}">
-
-    <link rel="shortcut icon" href="{{ asset('all-assets/front-end/images/favicon.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('all-assets/front-end/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('all-assets/front-end/css/responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('all-assets/front-end/css/color.css') }}">

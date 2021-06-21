@@ -39,11 +39,30 @@
                         <tr>
                             <td>{{ $item->title }}</td>
                             <td class="p-0">
+                                <div class="row m-2">
+                                  @if($item->image)
+                                    <img src="{{ $assetUrl.$item->image }}" height="100" class="rounded mr-1"><br>
+                                    @endif
 
-                                @if($item->image)
-                                <img src="{{ $assetUrl.$item->image }}" height="100" class="rounded d-block"><br>
-                                @endif
+                                    @if($item->image_2)
+                                    <img src="{{ $assetUrl.$item->image_2 }}" height="100" class="rounded mr-1"><br>
+                                    @endif
 
+                                    @if($item->image_3)
+                                    <img src="{{ $assetUrl.$item->image_3 }}" height="100" class="rounded mr-1"><br>
+                                    @endif
+
+                                    @if($item->image_4)
+                                    <img src="{{ $assetUrl.$item->image_4 }}" height="100" class="rounded mr-1"><br>
+                                    @endif
+
+                                    @if($item->image_5)
+                                    <img src="{{ $assetUrl.$item->image_5 }}" height="100" class="rounded mr-1"><br>
+                                    @endif
+                                </div>
+                              
+                                Owner Name : {{ $item->owner_name }} <b>&nbsp;||&nbsp;</b>
+                                Owner Number : {{ $item->owner_number }} <b>&nbsp;||&nbsp;</b>
                                 Address : {{ $item->address }} <b>&nbsp;||&nbsp;</b>
                                 Slug : {{ $item->address_slug }}<br><br>
                                 Type : {{ $item->type }}<b>&nbsp;||&nbsp;</b>

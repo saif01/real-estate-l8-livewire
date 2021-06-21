@@ -116,19 +116,16 @@
                                             <img src="{{ $assetUrl.$allData->image }}" alt="Image">
                                         </div><!--property-img end-->
                                         <div class="property-img">
-                                            <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                            <img src="{{ $assetUrl.$allData->image_2 }}" alt="Image">
                                         </div><!--property-img end-->
                                         <div class="property-img">
-                                            <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                            <img src="{{ $assetUrl.$allData->image_3 }}" alt="Image">
                                         </div><!--property-img end-->
                                         <div class="property-img">
-                                            <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                            <img src="{{ $assetUrl.$allData->image_4 }}" alt="Image">
                                         </div><!--property-img end-->
                                         <div class="property-img">
-                                            <img src="{{ $assetUrl.$allData->image }}" alt="Image">
-                                        </div><!--property-img end-->
-                                        <div class="property-img">
-                                            <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                            <img src="{{ $assetUrl.$allData->image_5 }}" alt="Image">
                                         </div><!--property-img end-->
                                     </div><!--property-main-img end-->
                                     <div class="property-thumb-imgs">
@@ -140,27 +137,22 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                                 <div class="property-img">
-                                                    <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                                    <img src="{{ $assetUrl.$allData->image_2 }}" alt="Image">
                                                 </div><!--property-img end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                                 <div class="property-img">
-                                                    <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                                    <img src="{{ $assetUrl.$allData->image_3 }}" alt="Image">
                                                 </div><!--property-img end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                                 <div class="property-img">
-                                                    <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                                    <img src="{{ $assetUrl.$allData->image_4 }}" alt="Image">
                                                 </div><!--property-img end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                                                 <div class="property-img">
-                                                    <img src="{{ $assetUrl.$allData->image }}" alt="Image">
-                                                </div><!--property-img end-->
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-                                                <div class="property-img">
-                                                    <img src="{{ $assetUrl.$allData->image }}" alt="Image">
+                                                    <img src="{{ $assetUrl.$allData->image_5 }}" alt="Image">
                                                 </div><!--property-img end-->
                                             </div>
                                         </div>
@@ -353,7 +345,7 @@
                                         </ul>
                                     </div>
                                 </div><!--nearby-locts end-->
-                                <div class="comments-dv">
+                                {{-- <div class="comments-dv">
                                     <h3>3 Reviews</h3>
                                     <div class="comment-section">
                                         <ul>
@@ -460,7 +452,7 @@
                                             </form>
                                         </div><!--post-comment-sec end-->
                                     </div><!--review-hd end-->
-                                </div><!--comments-dv end-->
+                                </div><!--comments-dv end--> --}}
                                 <div class="similar-listings-posts">
                                     <h3>Similar Listings</h3>
                                     <div class="list-products">
@@ -621,11 +613,10 @@
                                 <div class="widget widget-form">
                                     <h3 class="widget-title">Contact Listing Agent</h3>
                                     <div class="contct-info">
-                                        <img src="https://via.placeholder.com/81x74" alt="">
+                                        {{-- <img src="https://via.placeholder.com/81x74" alt=""> --}}
                                         <div class="contct-nf">
-                                            <h3>Tomas Wilkinson</h3>
-                                            <h4>Douglas and Eleman Agency</h4>
-                                            <span><i class="la la-phone"></i>+1 212-925-3797</span>
+                                            <h3>{{ $allData->owner_name }}</h3>
+                                            <span><i class="la la-phone"></i>{{ $allData->owner_number }}</span>
                                         </div>
                                     </div><!--contct-info end-->
                                     <div class="post-comment-sec">
@@ -747,3 +738,24 @@
             </div>
         </section><!--property-single-pg end-->
 </div>
+
+@push('styles')
+
+    <link rel="stylesheet" href="{{ asset('all-assets/front-end/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('all-assets/front-end/js/lib/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('all-assets/front-end/js/lib/slick/slick-theme.css') }}">
+    
+@endpush
+
+@push('scripts')
+
+<script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVwc4veKudU0qjYrLrrQXacCkDkcy3AeQ"></script>
+    <script src="{{ asset('all-assets/front-end/js/map-cluster/infobox.min.js') }}"></script>
+    <script src="{{ asset('all-assets/front-end/js/map-cluster/markerclusterer.js') }}"></script>
+    <script src="{{ asset('all-assets/front-end/js/map-cluster/map2.js') }}"></script>
+
+</script>
+    
+@endpush

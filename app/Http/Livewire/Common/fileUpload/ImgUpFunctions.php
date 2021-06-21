@@ -31,16 +31,16 @@ trait ImgUpFunctions{
     }
 
     // Image upload by size 
-    public function imgUpBySiPth($img = null, $path = null, $width = null, $height = null){
+    public function imgUpBySiPth($image = null, $path = null, $width = null, $height = null){
 
-        $imageName =$this->image->hashName();
+        $imageName =$image->hashName();
 
         if( !empty($width) && !empty($height) ){
-            $img = Image::make($this->image)
+            $img = Image::make($image)
             ->resize($width, $height)
             ->save($path.$imageName);
         }else{
-            $img = Image::make($this->image)
+            $img = Image::make($image)
             ->save($path.$imageName);
         }
        

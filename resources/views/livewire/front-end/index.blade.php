@@ -1,4 +1,22 @@
 <div>
+        @php
+            //Day Or houre Calculaate
+            function DayOrHoure($startTime, $endTime)
+            {
+                $ts1 = strtotime($startTime);
+                $ts2 = strtotime($endTime);
+                $seconds = abs($ts2 - $ts1); # difference will always be positive
+                $days = round($seconds / (60 * 60 * 24));
+                if ($days >= 1) {
+                return $days . " Days";
+                } else {
+                return round($seconds / (60 * 60)) . " Hours";
+                }
+            }
+
+            $currentTime = date('Y-m-d H:i:s', time());
+        @endphp
+
 
         <section class="map-sec">
             <h3 class="vis-hid">Invisible</h3>
@@ -36,120 +54,71 @@
         </section>
 
       
-       
-        {{-- <section class="popular-listing hp4 section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="section-heading">
-                            <span>Discover</span>
-                            <h3>Real Estate for Rent</h3>
+        <section class="form-banner">
+            <h3 class="vis-hid">Invisible</h3>
+            <div class="banner_form">
+                <div class="container">
+                    <form action="#" class="row banner-search">
+                        <div class="form_field addres">
+                            <input type="text" class="form-control" placeholder="Enter Address, City or State">
                         </div>
-                    </div>
+                        <div class="form_field tpmax">
+                            <div class="form-group">
+                                <div class="drop-menu">
+                                    <input type="hidden" name="gender" wire:model="type">
+                                    <ul class="dropeddown">
+                                        <li>For Sale</li>
+                                        <li>For Rent</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_field tpmax">
+                            <div class="form-group">
+                                <div class="drop-menu">
+                                    <div class="select">
+                                        <span>Min Price</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                    <input type="hidden" name="gender">
+                                    <ul class="dropeddown">
+                                        <li>300$</li>
+                                        <li>400$</li>
+                                        <li>500$</li>
+                                        <li>200$</li>
+                                        <li>600$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_field tpmax">
+                            <div class="form-group">
+                                <div class="drop-menu">
+                                    <div class="select">
+                                        <span>Max Price</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                    <input type="hidden" name="gender">
+                                    <ul class="dropeddown">
+                                        <li>2000</li>
+                                        <li>3000</li>
+                                        <li>4000</li>
+                                        <li>5000</li>
+                                        <li>6000</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_field srch-btn">
+                            <a href="#" class="btn btn-outline-primary ">
+                                <i class="la la-search"></i>
+                                <span>Search</span>
+                            </a>
+                        </div>
+                    </form>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <a href="24_Property_Single.html" title="">
-                                <div class="img-block">
-                                    <div class="overlay"></div>
-                                    <img src="https://via.placeholder.com/370x295" alt="" class="img-fluid">
-                                    <div class="rate-info">
-                                        <h5>$550.000</h5>
-                                        <span>For Rent</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <a href="24_Property_Single.html" title="">
-                                    <h3>Traditional Apartments</h3>
-                                    <p><i class="la la-map-marker"></i>212 5th Ave, New York</p>
-                                </a>
-                                <ul>
-                                    <li>3 Bathrooms</li>
-                                    <li>2 Beds</li>
-                                    <li>Area 555 Sq Ft</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="pull-left">
-                                    <i class="la la-heart-o"></i>
-                                </a>
-                                <a href="#" class="pull-right">
-                                    <i class="la la-calendar-check-o"></i> 25 Days Ago</a>
-                            </div>
-                            <a href="24_Property_Single.html" title="" class="ext-link"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <a href="24_Property_Single.html" title="">
-                                <div class="img-block">
-                                    <div class="overlay"></div>
-                                    <img src="https://via.placeholder.com/370x295" alt="" class="img-fluid">
-                                    <div class="rate-info">
-                                        <h5>$550.000</h5>
-                                        <span>For Rent</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <a href="24_Property_Single.html" title="">
-                                    <h3>Traditional Apartments</h3>
-                                    <p><i class="la la-map-marker"></i>212 5th Ave, New York</p>
-                                </a>
-                                <ul>
-                                    <li>3 Bathrooms</li>
-                                    <li>2 Beds</li>
-                                    <li>Area 555 Sq Ft</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="pull-left">
-                                    <i class="la la-heart-o"></i>
-                                </a>
-                                <a href="#" class="pull-right">
-                                    <i class="la la-calendar-check-o"></i> 25 Days Ago</a>
-                            </div>
-                            <a href="24_Property_Single.html" title="" class="ext-link"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <a href="24_Property_Single.html" title="">
-                                <div class="img-block">
-                                    <div class="overlay"></div>
-                                    <img src="https://via.placeholder.com/370x295" alt="" class="img-fluid">
-                                    <div class="rate-info">
-                                        <h5>$550.000</h5>
-                                        <span>For Rent</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <a href="24_Property_Single.html" title="">
-                                    <h3>Traditional Apartments</h3>
-                                    <p><i class="la la-map-marker"></i>212 5th Ave, New York</p>
-                                </a>
-                                <ul>
-                                    <li>3 Bathrooms</li>
-                                    <li>2 Beds</li>
-                                    <li>Area 555 Sq Ft</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="pull-left">
-                                    <i class="la la-heart-o"></i>
-                                </a>
-                                <a href="#" class="pull-right">
-                                    <i class="la la-calendar-check-o"></i> 25 Days Ago</a>
-                            </div>
-                            <a href="24_Property_Single.html" title="" class="ext-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
+            </div><!--banner_form end-->
+        </section><!--form-banner end-->
 
         <section class="popular-listing hp42 pt-0 section-padding">
             <div class="container">
@@ -162,28 +131,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    @forelse ($letestPost as $item)
+                    @forelse ($letestProperty as $value)
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
-                                <a href="24_Property_Single.html" title="">
+                                <a href="{{ route('property.details', $value->address_slug) }}" title="Details">
                                     <div class="img-block">
                                         <div class="overlay"></div>
-                                        <img src="https://via.placeholder.com/370x295" alt="" class="img-fluid">
+                                        <img src="{{ $assetUrl.$value->image }}" alt="Image" class="img-fluid">
                                         <div class="rate-info">
-                                            <h5>$550.000</h5>
-                                            <span>For Rent</span>
+                                            <h5>{{ $value->price }} Tk.</h5>
+                                            <span>For {{ $value->type }}</span>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="card-body">
-                                    <a href="24_Property_Single.html" title="">
-                                        <h3>Traditional Apartments</h3>
-                                        <p><i class="la la-map-marker"></i>212 5th Ave, New York</p>
+                                    <a href="{{ route('property.details', $value->address_slug) }}" title="Details">
+                                        <h3>{{ $value->title }}</h3>
+                                        <p><i class="la la-map-marker"></i>{{ $value->address }}</p>
                                     </a>
                                     <ul>
-                                        <li>3 Bathrooms</li>
-                                        <li>2 Beds</li>
-                                        <li>Area 555 Sq Ft</li>
+                                        <li>{{ $value->bedroom }} Bathrooms</li>
+                                        <li>{{ $value->bathroom }} Beds</li>
+                                        <li>{{ $value->area }}</li>
                                     </ul>
                                 </div>
                                 <div class="card-footer">
@@ -191,9 +160,9 @@
                                         <i class="la la-heart-o"></i>
                                     </a>
                                     <a href="#" class="pull-right">
-                                        <i class="la la-calendar-check-o"></i> 25 Days Ago</a>
+                                        <i class="la la-calendar-check-o"></i> {{ DayOrHoure( $value->created_at, now() ) }}</a>
                                 </div>
-                                <a href="24_Property_Single.html" title="" class="ext-link"></a>
+                                <a href="{{ route('property.details', $value->address_slug) }}" title="Details" class="ext-link"></a>
                             </div>
                         </div>
                     @empty

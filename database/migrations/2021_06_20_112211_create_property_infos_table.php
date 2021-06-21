@@ -34,7 +34,13 @@ class CreatePropertyInfosTable extends Migration
             $table->string('fire_place', 50)->nullable();
             $table->string('built_year')->nullable();
             $table->string('image')->nullable();
+            $table->string('image_2')->nullable();
+            $table->string('image_3')->nullable();
+            $table->string('image_4')->nullable();
+            $table->string('image_5')->nullable();
             $table->longText('details')->nullable();
+            $table->string('owner_name', 100)->nullable();
+            $table->string('owner_number', 200)->nullable();
             $table->string('status', 20)->nullable();
             $table->string('created_by', 20)->nullable();
             $table->timestamps();
