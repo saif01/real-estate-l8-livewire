@@ -1,5 +1,5 @@
 @extends('layouts.front-end.master')
-@section('title', 'Sm Business')
+@section('title', 'Real Estate')
 
 @section("content")
 

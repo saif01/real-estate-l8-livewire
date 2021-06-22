@@ -58,64 +58,53 @@
             <h3 class="vis-hid">Invisible</h3>
             <div class="banner_form">
                 <div class="container">
-                    <form action="#" class="row banner-search">
+                    <div class="row banner-search">
                         <div class="form_field addres">
-                            <input type="text" class="form-control" placeholder="Enter Address, City or State">
+                            <input type="text" wire:model="searchVal" class="form-control" placeholder="Enter Address, City or State">
+                            @error('searchVal')
+                            <small class="form-text text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="form_field tpmax">
-                            <div class="form-group">
-                                <div class="drop-menu">
-                                    <input type="hidden" name="gender" wire:model="type">
-                                    <ul class="dropeddown">
-                                        <li>For Sale</li>
-                                        <li>For Rent</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <select class="form-control" wire:model="type">
+                                <option selected>Property type</option>
+                                <option value="rent">Rent</option>
+                                <option value="sale">Sale</option>
+                            </select>
                         </div>
                         <div class="form_field tpmax">
-                            <div class="form-group">
-                                <div class="drop-menu">
-                                    <div class="select">
-                                        <span>Min Price</span>
-                                        <i class="fa fa-angle-down"></i>
-                                    </div>
-                                    <input type="hidden" name="gender">
-                                    <ul class="dropeddown">
-                                        <li>300$</li>
-                                        <li>400$</li>
-                                        <li>500$</li>
-                                        <li>200$</li>
-                                        <li>600$</li>
-                                    </ul>
-                                </div>
-                            </div>
+                           
+                               <select class="form-control mb-0" wire:model="min">
+                                    <option selected>Min Price</option>
+                                    <option value="5000">5,000</option>
+                                    <option value="8000">8,000</option>
+                                    <option value="10000">10,000</option>
+                                    <option value="12000">12,000</option>
+                                    <option value="15000">15,000</option>
+                                    <option value="20000">20,000</option>
+                                    <option value="30000">30,000</option>
+                                    <option value="50000">50,000</option>
+                                </select>
+                
                         </div>
                         <div class="form_field tpmax">
-                            <div class="form-group">
-                                <div class="drop-menu">
-                                    <div class="select">
-                                        <span>Max Price</span>
-                                        <i class="fa fa-angle-down"></i>
-                                    </div>
-                                    <input type="hidden" name="gender">
-                                    <ul class="dropeddown">
-                                        <li>2000</li>
-                                        <li>3000</li>
-                                        <li>4000</li>
-                                        <li>5000</li>
-                                        <li>6000</li>
-                                    </ul>
-                                </div>
-                            </div>
+                                <select class="form-control" wire:model="max">
+                                    <option selected>Max Price</option>
+                                    <option value="15000">15,000</option>
+                                    <option value="20000">20,000</option>
+                                    <option value="2000">25,000</option>
+                                    <option value="30000">30,000</option>
+                                    <option value="40000">40,000</option>
+                                    <option value="50000">50,000</option>
+                                    <option value="70000">70,000</option>
+                                    <option value="100000">1,00,000</option>
+                                </select>
                         </div>
-                        <div class="form_field srch-btn">
-                            <a href="#" class="btn btn-outline-primary ">
-                                <i class="la la-search"></i>
-                                <span>Search</span>
-                            </a>
+                        <div class="form_field">
+                            <button wire:click="searchData" wire:loading.remove class="btn btn-default"><i class="la la-search"></i> Search </button>
+                            <button wire:loading wire:target="searchData" class="btn btn-default">Sending... </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div><!--banner_form end-->
         </section><!--form-banner end-->

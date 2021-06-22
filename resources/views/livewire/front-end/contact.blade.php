@@ -52,8 +52,7 @@
                                             {{-- <button type="submit" class="btn-default submit">Send Message</button> --}}
 
                                             <button wire:click="save" wire:loading.remove class="btn-default"> Send Message </button>
-
-                                                <button wire:loading wire:target="save" class="btn-default">Sending... </button>
+                                            <button wire:loading wire:target="save" class="btn-default">Sending... </button>
                                         </div>
 
                                     </div>

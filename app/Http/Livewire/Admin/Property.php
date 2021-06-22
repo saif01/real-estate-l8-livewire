@@ -30,7 +30,7 @@ class Property extends Component
     //reset form
     public function resetForm(){
         $this->title          = '';
-        $this->slugTitle      = '';
+        $this->slugAddress    = '';
         $this->type           = '';
         $this->area           = '';
         $this->amenities      = '';
@@ -55,10 +55,10 @@ class Property extends Component
         $this->oldimage_2     = '';
         $this->image_3        = '';
         $this->oldimage_3     = '';
-        $this->image_4         = '';
-        $this->oldimage_4      = '';
-        $this->image_5         = '';
-        $this->oldimage_5      = '';
+        $this->image_4        = '';
+        $this->oldimage_4     = '';
+        $this->image_5        = '';
+        $this->oldimage_5     = '';
     }
 
     // Image 
@@ -270,6 +270,12 @@ class Property extends Component
         $this->title      = $data->title;
         $this->details    = $data->details;
         $this->oldImage   = $data->image;
+
+        $this->oldimage_2   = $data->image_2;
+        $this->oldimage_3   = $data->image_3;
+        $this->oldimage_4   = $data->image_4;
+        $this->oldimage_5   = $data->image_5;
+
 
         $this->address    = $data->address;
         $this->area       = $data->area;
